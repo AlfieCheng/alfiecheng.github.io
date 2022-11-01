@@ -1,0 +1,16 @@
+<html>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+<div id="app">
+  <p>{{ message }}</p>
+</div>
+</body>
+<script>
+  const vm = new Vue({
+    data: {
+      message : "Hello World!"
+    }
+  }).$mount("#app");
+</script>
+</html>
