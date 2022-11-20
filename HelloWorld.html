@@ -1,9 +1,13 @@
 <html>
-
+<style>
+  .message {
+    size: 100 pt;
+  }
+</style>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <body>
 <div id="app">
-  <p>{{ message }}</p>
+  <p class="message">{{ message }}</p>
   <input v-model="message"/>
 </div>
 </body>
