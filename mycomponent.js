@@ -1,5 +1,5 @@
 var mycomponent = {
-  props: ['parent-msg'],
+  props: ['parentMsg'],
   data() {
     return {
       subject: "Test component",
@@ -8,7 +8,7 @@ var mycomponent = {
   },
   template: `
   <div id='container'>
-    <div> parent message: {{ parent-msg }}</div>
+    <div> parent message: {{ parentMsg }}</div>
     <div> local message: {{ msg }} </div>
   </div>
   `
