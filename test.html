@@ -10,16 +10,16 @@
         <h1>Hello, world!</h1>
         <h2>{{username}}, Again</h2>
         This is Username: <input v-model="username"></input>
-        <p><table>
+        <p><table border=2 style="padding:10px">
         <tr>
             <td><teamwork :creator="Alfie"/></td>
             <td><teamwork :creator="Yuanfeng"/></td>
             <td><teamwork :creator="Wendy"/></td>
         </tr>
         <tr>
-            <td><my-component :parent-msg="comp1"></my-component></td>
-            <td><my-component :parent-msg="comp2"></my-component></td>
-            <td><my-component :parent-msg="comp3"></my-component></td>
+            <td><my-component parent-msg="comp1"></my-component></td>
+            <td><my-component parent-msg="comp2"></my-component></td>
+            <td><my-component parent-msg="comp3"></my-component></td>
         </tr>
         </table>
     
