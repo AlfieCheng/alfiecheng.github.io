@@ -12,7 +12,11 @@
         This is Username: <input v-model="username"></input>
         <p><table border=2 style="padding:10px">
         <tr>
-            <td><teamwork creator="Alfie">Alfie's Team</teamwork></td>
+            <td><teamwork creator="Alfie">
+                  <template #teamname>Alfie's Team</template>
+                  <template>this is a Team</template>
+                </teamwork>
+            </td>
             <td><teamwork creator="Yuanfeng"/></td>
             <td><teamwork creator="Wendy"/></td>
         </tr>
@@ -37,8 +41,9 @@
       template: `
       <div id='container'>
         <div> parent message: {{ creator }}</div>
-        <div>Slot Message: <slot>預設內容</slot></div>
+        <div> Team name: <slot name="teamname">Teamname</slot></div>
         <div> local message: {{ msg }} </div>
+         <div>Slot Message: <slot>預設內容</slot></div>
       </div>
       `
     }
