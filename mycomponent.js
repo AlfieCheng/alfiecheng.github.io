@@ -1,4 +1,4 @@
-var comp = {
+var mycomponent = {
   props: ['parent-msg'],
   data() {
     return {
