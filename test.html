@@ -10,7 +10,8 @@
         <h1>Hello, world!</h1>
         <h2>{{username}}, Again</h2>
         This is Username: <input v-model="username"></input>
-        <p><table border=1 style="padding:10px">
+        <p>
+        <table border=1 style="padding:10px">
         <tr>
             <td><teamwork creator="Alfie">
                   <template #teamname>Alfie's Team</template>
@@ -20,6 +21,8 @@
             <td><teamwork creator="Yuanfeng"/></td>
             <td><teamwork creator="Wendy"/></td>
         </tr>
+        </table>
+        <table border=1 style="padding:10px">
         <tr>
             <td><my-component parent-msg="comp1">Comp1's slot message</my-component></td>
             <td><my-component parent-msg="comp2"></my-component></td>
