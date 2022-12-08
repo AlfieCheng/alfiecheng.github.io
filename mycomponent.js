@@ -3,7 +3,7 @@ var mycomponent = {
   data() {
     return {
       subject: "Test component",
-      msg : "this is child Component"
+      msg : "this is mycomponent Component"
     }
   },
   template: `
