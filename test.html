@@ -26,16 +26,6 @@
     </div>
 </body>
 <script>
-    const app = Vue.createApp({
-      components: {
-        'my-component':mycomponent
-      },
-      data: {
-        username: '',
-        message : "Hello World!"
-      }
-    });
-    
     //創建一個名叫 teamwork 的物件
     var teamwork = {  
       props: ['creator'],
@@ -52,9 +42,17 @@
       `
     }
     
-    app.component('teamwork', teamwork);  // 註冊一個名叫 teamwork 的元件
+    Vue.component('teamwork', teamwork);  // 註冊一個名叫 teamwork 的全域元件
     
-    app.$mount("#app");
+    const app = new Vue({
+      components: {
+        'my-component':mycomponent  // 註冊一個名叫 my-component 的區域元件
+      },
+      data: {
+        username: '',
+        message : "Hello World!"
+      }
+    }).$mount("#app");;
     
   </script>
 </html>
