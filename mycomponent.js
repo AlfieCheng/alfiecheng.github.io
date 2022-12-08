@@ -9,6 +9,7 @@ var mycomponent = {
   template: `
   <div id='container'>
     <div> parent message: {{ parentMsg }}</div>
+    <div>Slot Message: <slot></slot></div>
     <div> local message: {{ msg }} </div>
   </div>
   `
