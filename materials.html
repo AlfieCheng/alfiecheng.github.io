@@ -59,7 +59,7 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item" v-for="section in sections">
-            <m-dropdown :clips="section.clips">{{section.title}}</m-dropdown>
+            <m-dropdown :clips="section.clips" @update="updateUrl">{{section.title}}</m-dropdown>
           </li>
         </ul>
         <form class="d-flex">
@@ -74,7 +74,10 @@
 <!-- Begin page content -->
 <main class="flex-shrink-0">
   <div class="container" id="app">
-    <iframe :src="linkage" width="640" height="480" allow="autoplay"></iframe>
+    <h1 class="mt-5">{{ title }}</h1>
+    <p class="lead">
+      <iframe :src="linkage"></iframe>
+    </p>
   </div>
 </main>
 
@@ -106,13 +109,18 @@
   
   Vue.component('m-dropdown',{
     props:['clips'],
+    methods:{
+      change(url){
+        this.$emit('update', url);
+      }
+    },
     template:`
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
           <slot></slot>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li v-for="clip in clips"><a class="dropdown-item" :href="clip.url">{{ clip.title }}</a></li>
+          <li v-for="clip in clips"><a class="dropdown-item" @click="change(clip.url)">{{ clip.title }}</a></li>
         </ul>
       </div>
     `
@@ -126,7 +134,13 @@
 
   var app = new Vue({
     data:{
+      title: "軟體研習說明",
       linkage: "https://drive.google.com/file/d/1en-B5__19k-4sYzwbZIDIWXUW6Z4lJRf/preview"
+    },
+    methods:{
+      updateUrl(url){
+        this.linkage = url;
+      }
     }
   }).$mount("#app");      
 
