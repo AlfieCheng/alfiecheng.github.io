@@ -95,8 +95,8 @@
         {
           title: "1120研習教材",
           clips: [
-            { title: "研習教材（一）前端軟體設計架構介紹", url: "https://drive.google.com/file/d/1I6_kNEVf6W2cn2upUmhmXiNcn-2Rdj84/view?usp=drivesdk" },
-            { title: "研習教材（二）Git 版本控制概念", url: "https://drive.google.com/file/d/1I5TFRokc1OHbPist4LEeoHi_we51lz2a/view?usp=drivesdk" }
+            { title: "研習教材（一）前端軟體設計架構介紹", url: "https://drive.google.com/file/d/1I6_kNEVf6W2cn2upUmhmXiNcn-2Rdj84/preview" },
+            { title: "研習教材（二）Git 版本控制概念", url: "https://drive.google.com/file/d/1I5TFRokc1OHbPist4LEeoHi_we51lz2a/preview" }
           ]
         },
         {
@@ -140,6 +140,7 @@
     },
     methods:{
       updateUrl(url){
+        alert(url+"url")
         this.linkage = url;
       }
     }
