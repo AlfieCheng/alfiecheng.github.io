@@ -46,12 +46,12 @@
     <!-- Custom styles for this template -->
     <link href="sticky-footer-navbar.css" rel="stylesheet">
   </head>
-  <body class="d-flex flex-column h-100">
+  <body class="d-flex flex-column h-100" id="app">
     
 <header>
   <!-- Fixed navbar -->
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <div class="container-fluid" id="navbar">
+    <div class="container-fluid">
       <a class="navbar-brand" href="#">資科研習教材</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -73,7 +73,7 @@
 
 <!-- Begin page content -->
 <main class="flex-shrink-0">
-  <div class="container" id="app">
+  <div class="container">
     <p>
     <h1 class="mt-5">{{ title }}</h1>
     <p class="lead">
@@ -127,14 +127,9 @@
     `
   });
   
-  var navbar = new Vue({
-    data:{
-      sections: video
-    }
-  }).$mount("#navbar");
-
   var app = new Vue({
     data:{
+      section: video,
       title: "軟體研習說明",
       linkage: "https://drive.google.com/file/d/1en-B5__19k-4sYzwbZIDIWXUW6Z4lJRf/preview"
     },
