@@ -59,14 +59,7 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item" v-for="section in sections">
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                {{ section.title }}
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li v-for="clip in section.clips"><a class="dropdown-item" :href="clip.url">{{ clip.title }}</a></li>
-              </ul>
-            </div>
+            <m-dropdown :section="section.clips">{{section.title}}</m-dropdown>
           </li>
         </ul>
         <form class="d-flex">
@@ -95,22 +88,40 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script>
-  var navbar = new Vue({
-    data:{
-      sections:[
+  var video = [
         {
           title: "1120研習教材",
-          clips: {
+          clips: [
             { title: "研習教材（一）前端軟體設計架構介紹", url: "https://drive.google.com/file/d/1I6_kNEVf6W2cn2upUmhmXiNcn-2Rdj84/view?usp=drivesdk" },
             { title: "研習教材（二）Git 版本控制概念", url: "https://drive.google.com/file/d/1I5TFRokc1OHbPist4LEeoHi_we51lz2a/view?usp=drivesdk" }
+          ]
         },
         {
           title: "1204研習教材",
-          clips: {
+          clips: [
             { title: "研習教材（一）軟體組職能介紹-認識軟體業", url: "https://drive.google.com/file/d/1qa8wAPVjI_yJn-ZYEKl1Jx9GMsrZuSn5/view?usp=drivesdk" },
             { title: "研習教材（二）軟體職能的修己與助人", url: "https://drive.google.com/file/d/10rlEMfQRR3CTBgds3sfii2dYUAsDxMRc/view?usp=drivesdk" }
+          ]
         }
       ]
+  
+  Vue.component('m-dropdown',{
+    props:['clips'],
+    template:`
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          <slot></slot>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li v-for="clip in clips"><a class="dropdown-item" :href="clip.url">{{ clip.title }}</a></li>
+        </ul>
+      </div>
+    `
+  });
+  
+  var navbar = new Vue({
+    data:{
+      sections: video
   }).$mount("#navbar");
 
   var app = new Vue({
