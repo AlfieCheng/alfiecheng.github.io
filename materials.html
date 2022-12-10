@@ -112,6 +112,7 @@
     props:['clips'],
     methods:{
       change(url){
+        alert(url)
         this.$emit('update', url);
       }
     },
@@ -121,7 +122,7 @@
           <slot></slot>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li v-for="clip in clips"><a class="dropdown-item" @click="change(clip.url)">{{ clip.title }}</a></li>
+          <li v-for="clip in clips"><a class="dropdown-item" @click.prevent="change(clip.url)">{{ clip.title }}</a></li>
         </ul>
       </div>
     `
