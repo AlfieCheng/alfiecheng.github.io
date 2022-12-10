@@ -59,7 +59,7 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item" v-for="section in sections">
-            <m-dropdown :section="section.clips">{{section.title}}</m-dropdown>
+            <m-dropdown :clips="section.clips">{{section.title}}</m-dropdown>
           </li>
         </ul>
         <form class="d-flex">
