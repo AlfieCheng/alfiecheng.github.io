@@ -121,7 +121,7 @@
           <slot></slot>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li v-for="clip in clips"><a class="dropdown-item" @click.prevent="change(clip.url)">{{ clip.title }}</a></li>
+          <li v-for="clip in clips"><a class="dropdown-item" @click.prevent="change(clip)">{{ clip.title }}</a></li>
         </ul>
       </div>
     `
@@ -132,10 +132,9 @@
       sections: video,
     },
     methods:{
-      updateUrl(url){
-        alert(url)
-        alert(app.linkage)
-        app.linkage = url;
+      updateUrl(clip){
+        app.title = clip.title
+        app.linkage = clip.url;
       }
     }
   }).$mount("#navbar");  
