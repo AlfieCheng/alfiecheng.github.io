@@ -57,7 +57,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <template v-for="session in sections">
           <li class="nav-item">
-            <m-dropdown>{{ session.title }}</m-dropdown>
+            <m-dropdown :clips="session.clips">{{ session.title }}</m-dropdown>
             <div class="dropdown">
               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 {{ session.title }}
