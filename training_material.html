@@ -101,7 +101,7 @@
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <template v-for="clip in session.clips">
-                  <li><a class="dropdown-item" href="clip.url">{{ clip.title }}</a></li>
+                  <li><a class="dropdown-item" :href="clip.url">{{ clip.title }}</a></li>
                 </template>
               </ul>
             </div>
