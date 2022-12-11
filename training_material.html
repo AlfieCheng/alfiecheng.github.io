@@ -57,6 +57,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <template v-for="session in sections">
           <li class="nav-item">
+            <m-dropdown>{{ session.title }}</m-dropdown>
             <div class="dropdown">
               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 {{ session.title }}
@@ -152,6 +153,25 @@
         }
       ]
       
+         Vue.component('m-dropdown',{
+            props:['clips'],
+            methods:{
+              change(url){
+                this.$emit('update', url);
+              }
+            },
+            template:`
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  <slot></slot>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li v-for="clip in clips"><a class="dropdown-item" @click.prevent="change(clip)">{{ clip.title }}</a></li>
+                </ul>
+              </div>
+            `
+          });
+        
         var navbar = new Vue({
           data:{
             sections: video
