@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Bottom navbar example · Bootstrap 5 繁體中文文件 - 六角學院 v5.1</title>
+    <title>資科研習教材</title>
 
     <link rel="canonical" href="https://bootstrap5.hexschool.com/docs/5.1/examples/navbar-bottom/">
 
@@ -45,6 +45,39 @@
     
   </head>
   <body>
+
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid" id="navheader">
+      <a class="navbar-brand" href="#">資科研習教材</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <template v-for="session in sections">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ session.title }}
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <template v-for="clip in session.clips">
+                  <li><a class="dropdown-item" href="clip.url">{{ clip.title }}</a></li>
+                </template>
+              </ul>
+            </div>
+          </li>
+        </template>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>    
     
 <main class="container">
   <div class="bg-light p-5 rounded mt-3">
@@ -76,19 +109,12 @@
             </div>
           </li>
         </template>  
-
-        <li class="nav-item dropup">
-          <a class="nav-link dropdown-toggle" href="#" id="dropdown10" data-bs-toggle="dropdown" aria-expanded="false">Dropup</a>
-          <ul class="dropdown-menu" aria-labelledby="dropdown10">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-      </ul>
     </div>
   </div>
 </nav>
+  
+  
+  
 
 
     <script src="https://bootstrap5.hexschool.com/docs/5.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
@@ -126,10 +152,17 @@
       ]
       
         var navbar = new Vue({
-        data:{
-          sections: video
-        }
-      }).$mount("#navbar");
+          data:{
+            sections: video
+          }
+        }).$mount("#navbar");
+      
+        var navheader = new Vue({
+          data:{
+            sections: video
+          }
+        }).$mount("#navheader");
+      
     </script>
   </body>
 </html>
