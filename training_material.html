@@ -83,32 +83,34 @@
     <h1>Bottom Navbar example</h1>
     <p class="lead">This example is a quick exercise to illustrate how the bottom navbar works.</p>
     <a class="btn btn-lg btn-primary" href="https://bootstrap5.hexschool.com/docs/5.1/components/navbar/" role="button">View navbar docs &raquo;</a>
+  
+    <div class="container-fluid" id="navbar">
+      <a class="navbar-brand" href="#">資科研習教材</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav">
+          <template v-for="session in sections">
+            <li class="nav-item">
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  {{ session.title }}
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <template v-for="clip in session.clips">
+                    <li><a class="dropdown-item" :href="clip.url">{{ clip.title }}</a></li>
+                  </template>
+                </ul>
+              </div>
+            </li>
+          </template>  
+      </div>
+    </div>
   </div>
 </main>
 <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
-  <div class="container-fluid" id="navbar">
-    <a class="navbar-brand" href="#">資科研習教材</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav">
-        <template v-for="session in sections">
-          <li class="nav-item">
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                {{ session.title }}
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <template v-for="clip in session.clips">
-                  <li><a class="dropdown-item" :href="clip.url">{{ clip.title }}</a></li>
-                </template>
-              </ul>
-            </div>
-          </li>
-        </template>  
-    </div>
-  </div>
+  
 </nav>
   
   
