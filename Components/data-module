@@ -1,4 +1,4 @@
-vue.components('data-module',{
+Vue.component('data-module',{
   data(){
     
   },
