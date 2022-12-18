@@ -52,6 +52,7 @@
   <!-- Fixed navbar -->
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid" id="navbar">
+      <data-module @init="init"></data-module>
       <a class="navbar-brand" href="#">資科研習教材</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -92,7 +93,7 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="./Components/data-module.js"></script>
 <script>
-  var video = [];
+  // var video = [];  //採用 data-module 服務型元件取得資料
   
   Vue.component('m-dropdown',{
     props:['clips'],
@@ -115,9 +116,12 @@
   
    var navbar = new Vue({
     data:{
-      sections: video,
+      sections: '',
     },
     methods:{
+      init(video){
+        sections = video;  //採用 data-module 服務型元件取得video資料
+      },
       updateUrl(clip){
         app.title = clip.title
         app.linkage = clip.url;
