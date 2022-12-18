@@ -1,9 +1,0 @@
-Vue.component('data-module',{
-  data(){
-    
-  },
-  created(){
-    alert('created');
-  }
-  
-});
