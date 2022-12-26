@@ -1,4 +1,4 @@
-# jsform
+# js-form
 
 ## Project setup
 ```
